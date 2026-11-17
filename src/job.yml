@@ -1,20 +1,38 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+
+# Verzeichnis, in welchem der Quellcode liegt
 code: .
+
+# Befehl, der ausgeführt werden soll
 command: >-
   python train-model-parameters.py
   --training_data ${{inputs.training_data}}
   --reg_rate ${{inputs.reg_rate}}
   --metrics_output ${{outputs.metrics_output}}
+
+# Eingangsparamenter
 inputs:
   training_data:
     type: uri_file
     path: azureml:diabetes-data@latest
   reg_rate: 0.01
+
+# Ausgangswerte
 outputs:
   metrics_output:
     type: uri_folder
+
+# Laufzeitumgebung
 environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
+
+# Compute, auf dem der Job laufen soll
 compute: azureml:aml-cluster
+
+# Name des Experiments
 experiment_name: diabetes-training
+
+# Anzeigename
 display_name: diabetes-train-command
+
+# Beschreibung
 description: diabetes training job
