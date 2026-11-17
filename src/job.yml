@@ -1,6 +1,5 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-
-# Indiesem Verzeichnis liegt der Quellcode
+# In diesem Verzeichnis liegt der Quellcode
 code: .
 
 # AUszuführender Befehl
